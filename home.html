@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- for azure:  all these links must use https, not http -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Drawville</title>
+
+  <link rel="stylesheet" href="themes/mycustom.min.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" type="text/css" href="jquery.themes.package-1.3.0/jquery.themes.css">  -->
+  <!-- <link rel="stylesheet" type="text/css" href="material-dashboard-react-nodejs-master"/> -->
+<!-- <script type="text/javascript" src="jquery.themes.package-1.3.0/jquery.themes.js"></script> -->
+  <script src="https://code.jquery.com/jquery-1.8.2.min.js"> </script>
+  <script src="https://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="main.js"></script>
+
+  
+ </head >
+<body onload="onload()" data-theme='a'>
+
+<div data-role="page" id="main">
+<div data-role="header">
+    <div data-role="controlgroup" data-type="horizontal" class ="pages" data-theme='a'> 
+        <a href="#main" data-role="button">Home</a>
+        <a href = "#second" data-role="button">Library </a>
+        <a href = "#third" data-role="button" data-theme='a'>Coloring Book </a>
+        <a href = "#fourth" data-role="button">About Us </a>
+    </div>
+
+</div>
+
+
+<div data-role="content" id="content" data-theme='a'>
+
+<div id="tools">
+<input type="color" onchange="ctx.strokeStyle=event.target.value" value="#999999" autocomplete="off" class="paint_panel">
+<img src ="images/edit.svg" class= "imagestools" alt="Pencil" id="pencil">
+<img src ="images/blur_on-24px.svg" class= "imagestools" alt="Eraser" id="eraser">
+<img src ="images/save-24px.svg" class= "imagestools" alt="Save" id="save" onclick="clearCanvas()">
+</div>
+<canvas id="painter" width= "300"height= "500"></canvas>
+    
+</div>
+
+
+
+
+<div data-role="footer" class="footer">
+    <p> Copyright Anna Tarasiuk 2020 </p>
+</div>
+</div>
+
+
+<div data-role="page" id="second">
+    <div data-role="header">
+        <div data-role="controlgroup" data-type="horizontal" class ="pages"> 
+            <a href="#main" data-role="button">Home</a>
+            <a href = "#second" data-role="button">Library </a>
+            <a href = "#third" data-role="button">Coloring Book </a>
+            <a href = "#fourth" data-role="button">About Us </a>
+
+        </div>
+    
+    </div>
+
+  <p> Here is the library of your saved drawings </p>
+  <div data-role="content" id="imagecontainer">
+<img src="images/micky-mouse-step-11.jpg" class="savedpic">
+<img src="images/micky-mouse-step-11.jpg" class="savedpic">
+<img src="images/micky-mouse-step-11.jpg" class="savedpic">
+<img src="images/micky-mouse-step-11.jpg"class="savedpic">
+  </div>
+  <div data-role="footer" class="footer">
+    <p> Copyright Anna Tarasiuk 2020 </p>
+</div>
+</div>
+<div data-role="page" id="third">
+    <div data-role="header">
+    <div data-role="controlgroup" data-type="horizontal" class ="pages"> 
+        <a href="#main" data-role="button">Home</a>
+        <a href = "#second" data-role="button">Library </a>
+        <a href = "#third" data-role="button">Coloring Book </a>
+        <a href = "#fourth" data-role="button">About Us </a>
+    </div>
+
+</div>
+   <p>Coloring Book.</p> 
+   <img onclick="setColoringImage(this)" src="images/baby-bugs-bunny-drawing-bug-box-for-on-coloring-sheets-colouring-pictures-to-print-color-sheet-1048x2261-caterpillar-printable-kids.jpg" class="coloringpic">
+   <img onclick="setColoringImage(this)" src = "images/de0fd94adf5937875fc814a961ea422b_coloring-pages-coloring-pages-mississippi-flagk-for-kids-_1848-1621.jpeg" class="coloringpic">
+   <img onclick="setColoringImage(this)" src ="images/free-childrens-coloring-pages-page-awesome-printable-for-boys-little-boy-toddlers-toddler-pdf-winter-mandala-kids-christmas-books-summer-animal-846x1190-outstanding-child.jpg" class="coloringpic">
+   <img onclick="setColoringImage(this)" src = "images/splendiloring-book-pages-for-toddlers-kidslor-books-ideas-page-best-booksr-lowgeorgetown11s-net.jpg"class="coloringpic">
+   <img onclick="setColoringImage(this)" src ="images/unnamed.jpg"class="coloringpic">
+
+   <div data-role="footer" class="footer">
+    <p> Copyright Anna Tarasiuk 2020 </p>
+</div>
+</div>
+<div data-role="page" id="fourth">
+    <div data-role="header">
+        <div data-role="controlgroup" data-type="horizontal" class ="pages"> 
+            <a href="#main" data-role="button">Home</a>
+        <a href = "#second" data-role="button">Library </a>
+        <a href = "#third" data-role="button">Coloring Book </a>
+        <a href = "#fourth" data-role="button">About Us </a>
+        </div>
+    
+    </div>
+    <p class = "about">
+        Anna Tarasiuk is a  Software Engineering student passionate about creating fun and meaningful products for kids and young adults.</br>
+        Anna came into software development after spending 9 years years in finance and insurance industries. Drawille is her second project at Bellevue College.<br>
+        She also created a game called "Europe" that helps kids to learn countries and capitals.
+        
+
+    </p>
+    <p  class = "about">
+      Phone  425-501-8734 </br>
+      Email Tarasiuk.Anna@yahoo.com 
+
+    </p>
+    <div data-role="footer" class="footer">
+        <p> Copyright Anna Tarasiuk 2020 </p>
+    </div>
+    </div>
+</body>
+
+</html>

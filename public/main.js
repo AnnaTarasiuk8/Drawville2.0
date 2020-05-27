@@ -16,7 +16,7 @@ document.getElementById("eraser").addEventListener('click',eraserClick);
      ctx = canvas.getContext('2d');
 
      ctx.lineWith = 2;
-     ctx.strokeStyle = 'azure';
+     ctx.strokeStyle = 'blue';
      
 
      canvas.addEventListener("touchstart", function (e) {
@@ -27,7 +27,7 @@ document.getElementById("eraser").addEventListener('click',eraserClick);
      },false);
 
      canvas.addEventListener('touchend', function(e) {
-
+        ctx.beginPath();
      },false);
 
      canvas.addEventListener("touchmove", function (e) {
@@ -45,6 +45,7 @@ document.getElementById("eraser").addEventListener('click',eraserClick);
 }
 
 function pencilClick(){
+   
     drawing =true;
 }
 
@@ -58,17 +59,20 @@ function setBlack(){
 
 function moveOn(x,y){
     if(drawing){
+        
         ctx.moveTo(mousePos.x, mousePos.y);
         ctx.lineTo(x, y);
         ctx.stroke();
+    
     }else{
         ctx.clearRect(x,y,25,25);
     }
 }
 
 function setColoringImage(img){
-    var canvas = document.getElementById('painter');
-    canvas.style.backgroundImage =  "url('"+img.src+"')";
+    alert("image was sent to painter");
+    ctx.drawImage(img, 0,0,300,500);
+
 }
 
 function clearCanvas(){
@@ -77,6 +81,17 @@ function clearCanvas(){
     canvas.style.backgroundColor =  "gray";
     ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
 
+}
+
+function saveLocalImage(){
+    var imgAsDataURL = document.getElementById('painter').toDataURL("image/png");
+
+        localStorage.setItem("elephant", imgAsDataURL);
+}
+function readLocalImage(img){
+    
+    img.setAttribute("src", localStorage.getItem("elephant"));
+    
 }
 
 

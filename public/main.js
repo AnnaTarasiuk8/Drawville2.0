@@ -4,13 +4,11 @@ let drawing = true;
 let mousePos = { x:0, y:0 };
 
 
-
-
-function onload(){
+function init(){
    // alert("draw your fantasy here, in the gray rectangle");
 
-document.getElementById("pencil").addEventListener('click',pencilClick);
-document.getElementById("eraser").addEventListener('click',eraserClick);
+    document.getElementById("pencil").addEventListener('click',pencilClick);
+    document.getElementById("eraser").addEventListener('click',eraserClick);
    
      canvas = document.getElementById('painter');
      ctx = canvas.getContext('2d');
@@ -43,6 +41,7 @@ document.getElementById("eraser").addEventListener('click',eraserClick);
         mousePos.y =y;
      },false);
 }
+init();
 
 function pencilClick(){
    
@@ -70,7 +69,7 @@ function moveOn(x,y){
 }
 
 function setColoringImage(img){
-    alert("image was sent to painter");
+    alert("Image was sent to Canvas.Have fun drawing");
     ctx.drawImage(img, 0,0,300,500);
 
 }
@@ -87,6 +86,7 @@ function saveLocalImage(){
     var imgAsDataURL = document.getElementById('painter').toDataURL("image/png");
 
         localStorage.setItem("elephant", imgAsDataURL);
+        alert("art saved ");
 }
 function readLocalImage(img){
     

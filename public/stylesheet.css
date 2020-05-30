@@ -15,11 +15,20 @@
     background-color: white;
 }
 #contentAboutAs{
-    width: 400px;
+    width: 100%;
     height:500px;
      margin: 0px;
      padding: 0px;
-     background-color: white;
+     background:white;
+}
+#contentWelcome{
+    width: 100%;
+    height: 500px;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(images/homeBack.jpg);
+    font-weight: bolder;
 }
 #painter{
     background-size: cover;
@@ -74,4 +83,9 @@ h1{
 }
 p{
     text-align: center;
+   
+}
+iframe{
+    width: 100%;
+    align-content: center;
 }
